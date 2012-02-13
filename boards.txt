@@ -19,6 +19,25 @@ mighty_opt.build.variant=standard
 
 ##############################################################
 
+mighty_opt_sl.name=Mighty 1284p 16MHz using slow Optiboot
+mighty_opt_sl.upload.protocol=arduino
+mighty_opt_sl.upload.maximum_size=130048
+mighty_opt_sl.upload.speed=28800
+mighty_opt_sl.bootloader.low_fuses=0xff
+mighty_opt_sl.bootloader.high_fuses=0xde
+mighty_opt_sl.bootloader.extended_fuses=0xfd
+mighty_opt_sl.bootloader.path=optiboot
+mighty_opt_sl.bootloader.file=optiboot_atmega1284p_slow.hex
+mighty_opt_sl.bootloader.unlock_bits=0x3F
+mighty_opt_sl.bootloader.lock_bits=0x0F
+mighty_opt_sl.build.mcu=atmega1284p
+mighty_opt_sl.build.f_cpu=16000000L
+#mighty_opt_sl.build.core=arduino:arduino
+mighty_opt_sl.build.core=standard
+mighty_opt_sl.build.variant=standard
+
+##############################################################
+
 avr_developers.name=avr-developers.com pinouts 16MHz using Optiboot
 avr_developers.upload.protocol=arduino
 avr_developers.upload.maximum_size=130048

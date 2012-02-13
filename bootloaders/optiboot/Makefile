@@ -28,6 +28,7 @@ PROGRAM    = optiboot
 # ENV ?= arduinodev
 # OS ?= macosx
 # OS ?= windows
+ENV = arduino
 
 # enter the parameters for the avrdude isp tool
 ISPTOOL	   = avrisp 
@@ -235,6 +236,14 @@ atmega328_isp: LFUSE = FF
 # 2.7V brownout
 atmega328_isp: EFUSE = 05
 atmega328_isp: isp
+
+atmega1284_slow: TARGET = atmega1284p
+atmega1284_slow: MCU_TARGET = atmega1284p
+atmega1284_slow: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=28800' '-DBIGBOOT'
+atmega1284_slow: AVR_FREQ = 16000000L
+atmega1284_slow: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_slow: $(PROGRAM)_atmega1284p_slow.hex
+atmega1284_slow: $(PROGRAM)_atmega1284p_slow.lst
 
 atmega1284: TARGET = atmega1284p
 atmega1284: MCU_TARGET = atmega1284p
